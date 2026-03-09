@@ -12,7 +12,7 @@ export default function Contact() {
   const [lottieData, setLottieData] = useState<any>(null);
 
   useEffect(() => {
-    fetch("/developer.json")
+    fetch(`${(import.meta as any).env.BASE_URL}developer.json`)
       .then(res => res.json())
       .then(data => setLottieData(data))
       .catch(err => console.error("Failed to load lottie", err));
