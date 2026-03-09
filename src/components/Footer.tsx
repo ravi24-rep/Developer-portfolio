@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function Footer() {
@@ -28,18 +28,13 @@ export default function Footer() {
             <Instagram size={20} />
           </motion.a>
           <motion.a 
-            href="#" 
+            href="https://www.linkedin.com/in/ravi-kumar-82aa8724a/" 
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.2, y: -2, color: "#fff" }}
             className="hover:text-white transition-colors"
           >
             <Linkedin size={20} />
-          </motion.a>
-          <motion.a 
-            href="#" 
-            whileHover={{ scale: 1.2, y: -2, color: "#fff" }}
-            className="hover:text-white transition-colors"
-          >
-            <Twitter size={20} />
           </motion.a>
         </div>
       </div>
