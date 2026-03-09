@@ -26,13 +26,24 @@ export default function Contact() {
     setMousePosition({ x, y });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState("submitting");
 
-    // Simulate network request
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+    // Simulate network request before triggering mail
     setTimeout(() => {
       setFormState("success");
+
+      // Open email client
+      window.location.href = `mailto:ravidynamo1924@gmail.com?subject=${subject}&body=${body}`;
 
       // Fire confetti from the button position
       const duration = 3 * 1000;
@@ -56,6 +67,7 @@ export default function Contact() {
       }, 250);
 
       setTimeout(() => setFormState("idle"), 4000);
+      e.currentTarget.reset();
     }, 1500);
   };
 
@@ -144,16 +156,16 @@ export default function Contact() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-mono text-slate-400">Name</label>
-                    <input required type="text" className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" placeholder="John Doe" />
+                    <input name="name" required type="text" className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" placeholder="John Doe" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-mono text-slate-400">Email</label>
-                    <input required type="email" className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" placeholder="john@example.com" />
+                    <input name="email" required type="email" className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" placeholder="john@example.com" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-mono text-slate-400">Message</label>
-                  <textarea required rows={4} className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none" placeholder="Let's build something amazing together..." />
+                  <textarea name="message" required rows={4} className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none" placeholder="Let's build something amazing together..." />
                 </div>
 
                 <button
