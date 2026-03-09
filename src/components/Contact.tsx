@@ -29,11 +29,11 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("submitting");
-    
+
     // Simulate network request
     setTimeout(() => {
       setFormState("success");
-      
+
       // Fire confetti from the button position
       const duration = 3 * 1000;
       const animationEnd = Date.now() + duration;
@@ -41,7 +41,7 @@ export default function Contact() {
 
       const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
-      const interval: any = setInterval(function() {
+      const interval: any = setInterval(function () {
         const timeLeft = animationEnd - Date.now();
 
         if (timeLeft <= 0) {
@@ -49,7 +49,8 @@ export default function Contact() {
         }
 
         const particleCount = 50 * (timeLeft / duration);
-        confetti(Object.assign({}, defaults, { particleCount,
+        confetti(Object.assign({}, defaults, {
+          particleCount,
           origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
         }));
       }, 250);
@@ -63,14 +64,14 @@ export default function Contact() {
   const yOffset = (mousePosition.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0)) / 40;
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="contact" 
+      id="contact"
       onMouseMove={handleMouseMove}
       className="relative py-32 bg-[#020617] text-slate-300 overflow-hidden perspective-1000 min-h-screen flex items-center"
     >
       {/* Dynamic Background Glow following cursor */}
-      <motion.div 
+      <motion.div
         className="absolute w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none z-0"
         animate={{
           x: mousePosition.x - 300,
@@ -107,7 +108,7 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -126,7 +127,7 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
-          
+
           {/* Left Side: Contact Form & Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -138,7 +139,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="bg-slate-900/60 backdrop-blur-2xl p-8 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-slate-800/50 hover:border-indigo-500/30 transition-colors duration-500 relative group overflow-hidden">
               {/* Form internal glow line */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
+
               <div className="space-y-6 relative z-10">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -154,7 +155,7 @@ export default function Contact() {
                   <label className="text-sm font-mono text-slate-400">Message</label>
                   <textarea required rows={4} className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none" placeholder="Let's build something amazing together..." />
                 </div>
-                
+
                 <button
                   disabled={formState !== "idle"}
                   className="w-full relative overflow-hidden bg-indigo-600 text-white font-bold py-4 px-6 rounded-xl hover:bg-indigo-500 transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] disabled:opacity-80 disabled:cursor-not-allowed group/btn"
@@ -164,7 +165,7 @@ export default function Contact() {
                       Send Transmission <Send size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                     </span>
                   </div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500" style={{ transform: formState === "submitting" ? "translateY(0)" : "translateY(100%)" }}>
                     <span className="flex items-center gap-2 opacity-80">
                       <Terminal size={18} className="animate-pulse" /> Establishing Connection...
@@ -201,7 +202,7 @@ export default function Contact() {
                 {[
                   { icon: Github, href: "https://github.com/ravi24-rep" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/ravi-kumar-82aa8724a/" },
-                  { icon: Instagram, href: "#" }
+                  { icon: Instagram, href: "https://www.instagram.com/songs_lover_r.k/" }
                 ].map((social, idx) => (
                   <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(79,70,229,0.3)]">
                     <social.icon size={20} />
@@ -222,9 +223,9 @@ export default function Contact() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/30 rounded-full blur-[80px]" />
 
             {/* Central Lottie Animation */}
-            <motion.div 
-              animate={{ 
-                x: -xOffset * 1.5, 
+            <motion.div
+              animate={{
+                x: -xOffset * 1.5,
                 y: -yOffset * 1.5,
                 rotateX: yOffset * 0.5,
                 rotateY: -xOffset * 0.5
@@ -242,11 +243,11 @@ export default function Contact() {
             </motion.div>
 
             {/* Floating UI Elements Around Developer */}
-            
+
             {/* 1. Layout Card */}
             <motion.div
-              animate={{ 
-                y: [0, -15, 0], 
+              animate={{
+                y: [0, -15, 0],
                 x: xOffset * 2,
                 rotate: [-5, -2, -5],
                 rotateY: xOffset * 2
@@ -269,7 +270,7 @@ export default function Contact() {
 
             {/* 2. Media / Image Card */}
             <motion.div
-              animate={{ 
+              animate={{
                 y: [0, 20, 0],
                 x: -xOffset * 1.2,
                 rotate: [5, 8, 5],
@@ -286,7 +287,7 @@ export default function Contact() {
 
             {/* 3. Terminal / Code Snippet */}
             <motion.div
-              animate={{ 
+              animate={{
                 y: [0, -10, 0],
                 x: xOffset * 1.5,
                 rotate: [2, -1, 2],
@@ -301,10 +302,10 @@ export default function Contact() {
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
               </div>
               <p className="font-mono text-[10px] text-emerald-400 leading-relaxed">
-                <span className="text-fuchsia-400">const</span> developer = <span className="text-yellow-300">new</span> Engineer();<br/>
-                <span className="text-blue-400">await</span> developer.build(<br/>
-                &nbsp;&nbsp;<span className="text-green-300">'modern web'</span><br/>
-                );<br/>
+                <span className="text-fuchsia-400">const</span> developer = <span className="text-yellow-300">new</span> Engineer();<br />
+                <span className="text-blue-400">await</span> developer.build(<br />
+                &nbsp;&nbsp;<span className="text-green-300">'modern web'</span><br />
+                );<br />
                 <span className="text-slate-400">// success</span>
               </p>
             </motion.div>
