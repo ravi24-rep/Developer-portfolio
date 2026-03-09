@@ -94,7 +94,7 @@ export default function ParallaxHero() {
         style={{ y: textY, scale: textScale, opacity: textOpacity }}
         className="relative z-20 text-center px-4"
       >
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -102,13 +102,13 @@ export default function ParallaxHero() {
         >
           RAVI DEV
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-xl md:text-3xl text-indigo-200 font-medium tracking-wide uppercase drop-shadow-[0_0_15px_rgba(167,139,250,0.5)]"
         >
-          Vibe Coder | CS Student
+          Vibe Coder | Freelancer
         </motion.p>
       </motion.div>
 
