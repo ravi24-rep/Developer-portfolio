@@ -12,7 +12,7 @@ const projects = [
     title: "Shanghai Chinese Kitchen",
     description: "A modern, responsive restaurant website featuring an elegant UI, interactive menu showcase, and seamless user experience. Optimized for performance and deployed on Vercel.",
     longDescription: "A full-stack restaurant application featuring a dynamic menu, shopping cart functionality, and a seamless checkout process. The UI is designed with modern aesthetics, utilizing Tailwind CSS for responsive layouts and Framer Motion for fluid animations. It includes an admin dashboard for managing orders and menu items, demonstrating strong product thinking and backend integration.",
-    image: "https://picsum.photos/seed/chinesefood/1920/1080",
+    image: "/projects/shanghai.png",
     tags: ["React", "Tailwind CSS", "Vercel", "Framer Motion", "Node.js"],
     github: "#",
     live: "https://shangai-chinese-kitchen.vercel.app/"
@@ -21,7 +21,7 @@ const projects = [
     title: "Eggzilla Website",
     description: "A dynamic and engaging brand website for Eggzilla. Built with modern web technologies to showcase products with high performance and smooth animations.",
     longDescription: "A high-performance brand website built to showcase Eggzilla's unique product offerings. It features an interactive product viewer, smooth scroll animations powered by GSAP, and a highly optimized Lighthouse score. The site is fully responsive, ensuring a premium user experience across all devices, and integrates seamlessly with modern deployment pipelines.",
-    image: "https://picsum.photos/seed/egg/1920/1080",
+    image: "/projects/eggzilla.png",
     tags: ["React", "Node.js", "Render", "GSAP", "SEO"],
     github: "#",
     live: "https://eggzilla-website.onrender.com/"
