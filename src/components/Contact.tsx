@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "motion/react";
-import { Mail, MapPin, Phone, Send, CheckCircle2, Github, Linkedin, Twitter, Layout, Code2, Image as ImageIcon, Cloud, Terminal } from "lucide-react";
+import { Mail, MapPin, Phone, Send, CheckCircle2, Github, Linkedin, Instagram, Layout, Code2, Image as ImageIcon, Cloud, Terminal } from "lucide-react";
 import Lottie from "lottie-react";
 import confetti from "canvas-confetti";
 
@@ -199,11 +199,11 @@ export default function Contact() {
 
               <div className="flex gap-4">
                 {[
-                  { icon: Github, href: "#" },
-                  { icon: Linkedin, href: "#" },
-                  { icon: Twitter, href: "#" }
+                  { icon: Github, href: "https://github.com/ravi24-rep" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/ravi-kumar-82aa8724a/" },
+                  { icon: Instagram, href: "#" }
                 ].map((social, idx) => (
-                  <a key={idx} href={social.href} className="w-12 h-12 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(79,70,229,0.3)]">
+                  <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(79,70,229,0.3)]">
                     <social.icon size={20} />
                   </a>
                 ))}

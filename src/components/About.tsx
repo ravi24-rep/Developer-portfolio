@@ -2,7 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { GraduationCap, Briefcase, Code2, User, Sparkles, Cpu, Globe, Rocket } from "lucide-react";
+import { GraduationCap, Briefcase, Code2, User, Sparkles, Cpu, Globe, Rocket, Download } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -159,6 +159,29 @@ export default function About() {
                 <p className="text-lg md:text-xl leading-relaxed text-slate-300 font-light">
                   I am a dedicated <span className="text-white font-medium">Computer Science Engineering</span> student with a passion for software development. I actively contribute to group projects and motivate team members to achieve common targets. My inquisitive nature drives me to continuously learn and expand my knowledge horizons as a <span className="text-indigo-300 font-mono bg-indigo-500/10 px-2 py-1 rounded-md">"vibe coder"</span>.
                 </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                  <a 
+                    href="/resume.pdf" 
+                    download="Ravi_Kumar_Resume.pdf"
+                    onClick={() => {
+                      // Small delay to allow download to trigger before mail window opens
+                      setTimeout(() => {
+                        window.location.href = "mailto:ravidynamo1924@gmail.com?subject=Hire%20Me%20Inquiry&body=Hi%20Ravi,%20I%20just%20downloaded%20your%20resume%20and%20would%20like%20to%20discuss%20an%20opportunity.";
+                      }, 500);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_40px_rgba(79,70,229,0.6)] hover:-translate-y-1 group/hire relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/hire:translate-y-0 transition-transform duration-300 ease-out" />
+                    <span className="relative z-10 flex items-center gap-2">
+                      <Briefcase size={20} className="group-hover/hire:animate-bounce" />
+                      Hire Me
+                    </span>
+                    <span className="relative z-10 text-indigo-200 text-sm border-l border-white/20 pl-2 ml-2 flex items-center gap-1">
+                      <Download size={16} /> Resume
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
