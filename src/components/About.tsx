@@ -162,7 +162,7 @@ export default function About() {
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
                   <a 
-                    href="/resume.pdf" 
+                    href={`${import.meta.env.BASE_URL}resume.pdf`} 
                     download="Ravi_Kumar_Resume.pdf"
                     onClick={() => {
                       // Small delay to allow download to trigger before mail window opens

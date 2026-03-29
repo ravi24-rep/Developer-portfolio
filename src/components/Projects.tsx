@@ -12,7 +12,7 @@ const projects = [
     title: "Scrolly Telling Web Experience",
     description: "An immersive scrolling storytelling experience built with React, Vite, and GSAP. Features advanced parallax and custom animations for fluid narration.",
     longDescription: "A highly immersive, visually-driven application focusing on scrollytelling. Engineered with React and Vite for optimal performance, and GSAP/ScrollTrigger for sophisticated, frame-by-frame scroll animations. It includes customized sequences and parallax effects that bring stories to life with premium interaction dynamics and smooth, responsive design.",
-    image: "/projects/scrollytelling.png",
+    image: "projects/scrollytelling.png",
     tags: ["React", "Vite", "GSAP", "Tailwind CSS"],
     github: "https://github.com/ravi24-rep/scrolly-telling",
     live: "https://ravi24-rep.github.io/scrolly-telling/"
@@ -21,7 +21,7 @@ const projects = [
     title: "Shanghai Chinese Kitchen",
     description: "A modern, responsive restaurant website featuring an elegant UI, interactive menu showcase, and seamless user experience. Optimized for performance and deployed on Vercel.",
     longDescription: "A full-stack restaurant application featuring a dynamic menu, shopping cart functionality, and a seamless checkout process. The UI is designed with modern aesthetics, utilizing Tailwind CSS for responsive layouts and Framer Motion for fluid animations. It includes an admin dashboard for managing orders and menu items, demonstrating strong product thinking and backend integration.",
-    image: "/projects/shanghai.png",
+    image: "projects/shanghai.png",
     tags: ["React", "Tailwind CSS", "Vercel", "Framer Motion", "Node.js"],
     github: "#",
     live: "https://shangai-chinese-kitchen.vercel.app/"
@@ -30,7 +30,7 @@ const projects = [
     title: "Eggzilla Website",
     description: "A dynamic and engaging brand website for Eggzilla. Built with modern web technologies to showcase products with high performance and smooth animations.",
     longDescription: "A high-performance brand website built to showcase Eggzilla's unique product offerings. It features an interactive product viewer, smooth scroll animations powered by GSAP, and a highly optimized Lighthouse score. The site is fully responsive, ensuring a premium user experience across all devices, and integrates seamlessly with modern deployment pipelines.",
-    image: "/projects/eggzilla.png",
+    image: "projects/eggzilla.png",
     tags: ["React", "Node.js", "Render", "GSAP", "SEO"],
     github: "#",
     live: "https://eggzilla-website.onrender.com/"
@@ -177,7 +177,7 @@ export default function Projects() {
                 {/* Project Image */}
                 <div className="relative h-64 overflow-hidden shrink-0">
                   <div className="absolute inset-0 bg-slate-900/40 z-10 group-hover:bg-transparent transition-colors duration-500" />
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src={`${import.meta.env.BASE_URL}${project.image}`} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                   
                   {/* Top Bar */}
                   <div className="absolute top-0 left-0 right-0 p-4 z-20 flex gap-2">
@@ -242,7 +242,7 @@ export default function Projects() {
               </button>
               
               <div className="w-full md:w-1/2 h-64 md:h-auto relative shrink-0">
-                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={`${import.meta.env.BASE_URL}${selectedProject.image}`} alt={selectedProject.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent" />
               </div>
               
